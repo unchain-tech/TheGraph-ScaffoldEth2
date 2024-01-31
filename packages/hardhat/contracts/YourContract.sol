@@ -42,6 +42,12 @@ contract YourContract {
 		_;
 	}
 
+	event SendMessage(address _from, address _to, string message);
+
+	function sendMessage(address _to, string calldata message) external {
+		emit SendMessage(msg.sender, _to, message);
+	}
+
 	/**
 	 * Function that allows anyone to change the state variable "greeting" of the contract and increase the counters
 	 *
